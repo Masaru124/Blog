@@ -1,3 +1,94 @@
-body{
-    background-color: black;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #000000;
+}
+
+nav {
+    background-color: #000000;
+    color: white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 15px;
+}
+nav a:hover{
+    color: rgb(3, 75, 157);
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+nav li {
+    margin-right: 15px;
+}
+
+nav label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+nav select {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none;
+}
+
+nav select:hover {
+    border-color: #0070a1;
+}
+
+form button {
+    background-color: #0c93ec;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: #006bae;
+}
+
+.logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.postcont{
+    padding-left: 100px;
+}
+
+.postcont ul{
+    list-style: none;
+}
+.postcont li{
+    height: auto;
+    width: 80%;
+    border: 0.5px solid rgb(5, 111, 160);
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+
 }

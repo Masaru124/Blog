@@ -1,25 +1,44 @@
 {% extends 'base.html' %}
-{% block title %}  Add Blog Post {% endblock %}
+{% block title %} Add Blog Post {% endblock %}
 {% block content %}
-{% if user.is_authenticated %}
-<h1> Add Blog Post </h1>
-</br> </br> </br>
-<div class ="form-group">
-<form method ="Post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.media}}
-    {{form.as_p}}
-    <button class ="btn btn-secondary">Post</button>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} Add Blog Post {% endblock %}</title>
 
-<script>
-    var name ="{{user.id}}";
-    document.getElementById("elder").value=name;
+    <!-- Optional: Link to your custom CSS -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
 
-</script>
+    <div class="container mt-5">
+        {% if user.is_authenticated %}
+            <h1> Add Blog Post </h1>
+            </br> </br> </br>
 
-{% else %}
-You are Not allowed here !
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.media }}
+                    {{ form.as_p }}
+                    <button class="btn btn-secondary">Post</button>
+                </form>
+            </div>
 
-{% endif %}
+            <script>
+                var name = "{{ user.id }}";
+                document.getElementById("elder").value = name;
+            </script>
+
+        {% else %}
+            <p>You are Not allowed here!</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
 {% endblock %}
