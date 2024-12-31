@@ -5,10 +5,11 @@
 <h1> Posts</h1>
 <ul>
 {% for post in object_list %}
-<li><a href="{% url 'article-detail' post.pk %}">  
-    {{ post.title }}</a> 
-    <a href= "{% url 'category' post.category|slugify %}"> {{ post.category }}</a>
-     - {{ post.author }}</br>
+<li>
+    <h3><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h3>
+    <p>Author: {{ post.author }}</p>
+    <p>Date: {{ post.post_date }}</p>
+    <p>Category: <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a></p>
     {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
     <a href= "{% url 'update-post' post.pk %}"> Edit </a></br>
