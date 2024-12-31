@@ -11,13 +11,12 @@
 
 <body>
   <nav>
-
     <div>
-
       <ul>
-        {% if cat_menu %}
         <li><a href="{% url 'home' %}">MY BLOG</a></li>
 
+        <!-- Categories Dropdown -->
+        {% if cat_menu and cat_menu|length > 0 %}
         <li>
           <label for="category-select">Categories</label>
           <select id="category-select" name="categories">
@@ -26,39 +25,31 @@
             {% endfor %}
           </select>
         </li>
-
         {% endif %}
+
+        <!-- Authentication-based Navigation -->
         {% if user.is_authenticated %}
         <li><a href="{% url 'add_post' %}">Add Posts</a></li>
-
         <li><a href="{% url 'add_category' %}">Add Category</a></li>
-
         <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
-        {% else %}
-        <li><a href="{% url 'register' %}">Register</a></li>
-
-        <li><a href="{% url 'login' %}">Login</a></li>
-        {% endif %}
-
         <li>
           <form action="{% url 'logout' %}" method="post" style="display: inline;">
             {% csrf_token %}
             <button type="submit">Logout</button>
           </form>
         </li>
-
+        {% else %}
+        <li><a href="{% url 'register' %}">Register</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
       </ul>
     </div>
-
   </nav>
 
   <div class="postcont">
-
     {% block content %}
     {% endblock %}
-
   </div>
-
 </body>
 
 </html>
